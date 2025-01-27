@@ -1,0 +1,136 @@
+<%- include('partials/header') %>
+
+
+    <!-- Corps de la page -->
+    <main class="admin-page">
+      <h1>Administration</h1>
+
+      <!-- Berlingot d'erreur pour afficher les erreurs -->
+      <!-- <div class="form-error-block">
+                Une erreur s'est produite à l'envoi du formulaire : [message
+                d'erreur].
+            </div> -->
+
+      <details
+        class="admin__details-block"
+        open>
+        <summary class="admin__details-title">Niveaux</summary>
+        <!-- Tableau de données -->
+        <table class="admin-table">
+          <caption class="admin-table__title admin-page__subtitle">
+            Liste des niveaux existants
+          </caption>
+          <tr>
+            <th>#</th>
+            <th>Nom</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Facile</td>
+            <td>
+              <a href="#"
+                ><img
+                  src="../../../public/icons/update.png"
+                  alt="Modifier le niveau"
+              /></a>
+            </td>
+            <td>
+              <button
+                class="admin-table__btn"
+                data-level="Facile">
+                <img
+                  src="../../../public/icons/delete.png"
+                  alt="Supprimer le niveau" />
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Moyen</td>
+            <td>
+              <a href="#"
+                ><img
+                  src="../../../public/icons/update.png"
+                  alt="Modifier le niveau"
+              /></a>
+            </td>
+            <td>
+              <button
+                class="admin-table__btn"
+                data-level="Moyen">
+                <img
+                  src="../../../public/icons/delete.png"
+                  alt="Supprimer le niveau" />
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Difficile</td>
+            <td>
+              <a href="#"
+                ><img
+                  src="../../../public/icons/update.png"
+                  alt="Modifier le niveau"
+              /></a>
+            </td>
+            <td>
+              <button
+                class="admin-table__btn"
+                data-level="Difficile">
+                <img
+                  src="../../../public/icons/delete.png"
+                  alt="Supprimer le niveau" />
+              </button>
+            </td>
+          </tr>
+        </table>
+
+        <!-- Dialog pour la confirmation -->
+        <dialog
+          class="admin-dialog"
+          id="confirm-dialog">
+          <p class="admin-dialog__title">Confirmer la suppression</p>
+          <p id="dialog-message">Voulez-vous vraiment supprimer ce niveau ?</p>
+          <div class="admin-dialog__buttons">
+            <button
+              class="admin-dialog__button admin-dialog__button--cancel"
+              id="cancel-button">
+              Annuler
+            </button>
+            <button
+              class="admin-dialog__button admin-dialog__button--confirm"
+              id="confirm-button">
+              Confirmer
+            </button>
+          </div>
+        </dialog>
+
+        <!-- Formulaire d'ajout d'un niveau -->
+        <p class="admin-page__subtitle">Ajouter un niveau</p>
+        <form
+          class="add-form"
+          action="">
+          <label
+            class="add-form__label"
+            for="level"
+            >Nom du niveau</label
+          >
+          <input
+            class="add-form__input"
+            type="text"
+            name="level"
+            id="level"
+            placeholder="Niveau" />
+          <button
+            class="add-form__btn"
+            type="submit">
+            Ajouter niveau
+          </button>
+        </form>
+      </details>
+    </main>
+
+    <%- include('partials/footer') %>

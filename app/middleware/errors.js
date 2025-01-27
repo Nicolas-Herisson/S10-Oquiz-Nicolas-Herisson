@@ -3,7 +3,7 @@ const errors = {
         res.status(404).render("404");
     },
     500: (res) => {
-        res.status(500).send("Server error!");
+        res.status(500).render("500");
     }
 };
 

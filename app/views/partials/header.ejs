@@ -1,21 +1,113 @@
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta
-  name="description"
-  content="site description."
-/>
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Testez vos connaissances avec notre plateforme de quiz en ligne ! Des centaines de quiz amusants et éducatifs dans tous les domaines : culture générale, sciences, divertissement, et bien plus. Défiez vos amis et devenez un maître du savoir !" />
 
-<title> Title</title>
+    <link
+      rel="shortcut icon"
+      href="/favicon.ico"
+      type="image/x-icon" />
 
-<link rel="stylesheet" href="/css/reset.css" />
-<link rel="stylesheet" href="/css/styles.css" />
+    <title>Oquiz</title>
 
-</head>
-<body>
+    <!-- Google Fonts -->
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+      async />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+      async />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+      async />
 
-<header>
-  <nav>
-    <ul>
-      <li><a href="/">Accueil</a></li>
-    </ul>
-  </nav>
+    <!-- Stylesheets -->
+    <link
+      rel="stylesheet"
+      href="/css/reset.css"
+      async />
+    <link
+      rel="stylesheet"
+      href="/css/style.css"
+      async />
+  </head>
+  <body>
+    <!-- Entête de page -->
+    <header class="hero">
+      <!-- Logo du site -->
+      <h1>
+        <img
+          class="header__logo"
+          src="/images/logo-white.svg"
+          alt="Oquiz - Plateforme de quiz en ligne" />
+      </h1>
+      <!-- Navigation de l'entête -->
+      <nav class="header-nav">
+        <ul class="header-nav__list">
+          <li class="header-nav__elt">
+            <a
+              class="header-nav__link"
+              href="/"
+              ><img
+                src="/icons/homepage.png"
+                alt="Page d'accueil" /><span>Accueil</span></a
+            >
+          </li>
+          <li class="header-nav__elt">
+            <a
+              class="header-nav__link"
+              href="/tags"
+              ><img
+                src="/icons/tags.png"
+                alt="Lien vers la page des sujets" /><span>Sujets</span></a
+            >
+          </li>
+          <!-- Uniquement visible lorsque l'utilisateur est connecté -->
+          <!-- <li class="header-nav__elt">
+                            <a
+                                class="header-nav__link"
+                                href="./profile.html"
+                                ><img src="../../../public/icons/profile.png" alt="Lien vers votre page de profil"><span>Profil</span></a
+                            >
+                        </li> -->
+          <!-- ... -->
+          <li class="header-nav__elt">
+            <a
+              class="header-nav__link header-nav__link--outline"
+              href="/login"
+              ><img
+                src="/icons/login.png"
+                alt="Page de connexion" /><span>Connexion</span></a
+            >
+          </li>
+          <li class="header-nav__elt">
+            <a
+              class="header-nav__link header-nav__link--plain"
+              href="/signup"
+              ><img
+                src="/icons/signup.png"
+                alt="Page d'inscription" /><span>Inscription</span></a
+            >
+          </li>
+          <!-- Uniquement visible lorsque l'utilisateur est connecté -->
+          <!-- <li class="header-nav__elt">
+                            <a
+                                class="header-nav__link header-nav__link--outline"
+                                href="#"
+                                ><img src="../../../public/icons/logout.png" alt="Se déconnecter"><span>Déconnexion</span></a
+                            >
+                        </li> -->
+          <!-- ... -->
+        </ul>
+      </nav>
+    </header>

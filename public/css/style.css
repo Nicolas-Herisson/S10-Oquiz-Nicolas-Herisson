@@ -83,12 +83,12 @@ header::after {
         ),
         url("../../public/images/question-marks.webp"); */
   /* Règle à décommenter lors du passage sur Node.js */
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
       to bottom,
       rgba(232, 59, 128, 0.5),
       rgba(86, 53, 215, 1)
     ),
-    url("/images/question-marks.webp");
+    url("/images/question-marks.webp"); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

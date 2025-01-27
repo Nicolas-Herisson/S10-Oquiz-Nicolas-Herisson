@@ -1,0 +1,45 @@
+<%- include('partials/header') %>
+
+
+    <!-- Corps de la page -->
+    <main class="login-page">
+      <h1>Connexion</h1>
+      <!-- Berlingot d'erreur pour afficher les erreurs -->
+      <!-- <div class="form-error-block">
+                Une erreur s'est produite à l'envoi du formulaire : [message
+                d'erreur].
+            </div> -->
+      <form
+        class="login-form"
+        action="">
+        <div class="login-form__fieldset">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="nom@mail.fr" />
+        </div>
+
+        <div class="login-form__fieldset">
+          <label for="password">Mot de passe</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="******" />
+        </div>
+
+        <button type="submit">Connexion</button>
+      </form>
+
+      <!-- Liens utiles -->
+      <ul>
+        <li>
+          <a href="./signup.html">Vous n'avez pas encore de compte ?</a>
+        </li>
+        <li><a href="./index.html">Retour à la page d'accueil</a></li>
+      </ul>
+    </main>
+
+    <%- include('partials/footer') %>

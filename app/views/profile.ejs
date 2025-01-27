@@ -1,0 +1,52 @@
+<%- include('partials/header') %>
+
+
+    <!-- Corps de la page -->
+    <main class="profile-page">
+      <h1>Votre profil</h1>
+      <!-- Berlingot d'erreur pour afficher les erreurs -->
+      <!-- <div class="form-error-block">
+                Une erreur s'est produite à l'envoi du formulaire : [message
+                d'erreur].
+            </div> -->
+      <form
+        class="profile-form"
+        action="">
+        <div class="profile-form__fieldset">
+          <label for="firstname">Prénom</label>
+          <input
+            type="text"
+            name="firstname"
+            id="firstname"
+            placeholder="Votre prénom"
+            value="Wade"
+            disabled />
+        </div>
+
+        <div class="profile-form__fieldset">
+          <label for="lastname">Nom de famille</label>
+          <input
+            type="text"
+            name="lastname"
+            id="lastname"
+            placeholder="Votre nom"
+            value="Wilson"
+            disabled />
+        </div>
+
+        <div class="profile-form__fieldset">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="nom@mail.fr"
+            value="deadpool@marvel.com"
+            disabled />
+        </div>
+
+        <button type="submit">Mettre à jour</button>
+      </form>
+    </main>
+
+    <%- include('partials/footer') %>

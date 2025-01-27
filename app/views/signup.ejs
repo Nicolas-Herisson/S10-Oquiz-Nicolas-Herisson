@@ -1,0 +1,69 @@
+<%- include('partials/header') %>
+
+    <!-- Corps de la page -->
+    <main class="signup-page">
+      <h1>Inscription</h1>
+      <!-- Berlingot d'erreur pour afficher les erreurs -->
+      <!-- <div class="form-error-block">
+                Une erreur s'est produite à l'envoi du formulaire : [message
+                d'erreur].
+            </div> -->
+      <form
+        class="signup-form"
+        action="">
+        <div class="signup-form__fieldset">
+          <label for="firstname">Prénom</label>
+          <input
+            type="text"
+            name="firstname"
+            id="firstname"
+            placeholder="Votre prénom" />
+        </div>
+
+        <div class="signup-form__fieldset">
+          <label for="lastname">Nom de famille</label>
+          <input
+            type="text"
+            name="lastname"
+            id="lastname"
+            placeholder="Votre nom" />
+        </div>
+
+        <div class="signup-form__fieldset">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="nom@mail.fr" />
+        </div>
+
+        <div class="signup-form__fieldset">
+          <label for="password">Mot de passe</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="******" />
+        </div>
+
+        <div class="signup-form__fieldset">
+          <label for="confirmation">Confirmation mot de passe</label>
+          <input
+            type="password"
+            name="confirmation"
+            id="password"
+            placeholder="******" />
+        </div>
+
+        <button type="submit">Inscription</button>
+      </form>
+
+      <!-- Liens utiles -->
+      <ul>
+        <li><a href="./login.html">Vous avez déjà un compte ?</a></li>
+        <li><a href="./index.html">Retour à la page d'accueil</a></li>
+      </ul>
+    </main>
+
+    <%- include('partials/footer') %>
