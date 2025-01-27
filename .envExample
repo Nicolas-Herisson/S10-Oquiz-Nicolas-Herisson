@@ -1,0 +1,6 @@
+# Set a port
+PORT=0000
+
+DBPWD="pwd"
+DBUSER="user"
+DB="DBName"
