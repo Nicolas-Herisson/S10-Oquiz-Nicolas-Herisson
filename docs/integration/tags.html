@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Testez vos connaissances avec notre plateforme de quiz en ligne ! Des centaines de quiz amusants et éducatifs dans tous les domaines : culture générale, sciences, divertissement, et bien plus. Défiez vos amis et devenez un maître du savoir !" />
+
+    <link
+      rel="shortcut icon"
+      href="../../../public/favicon.ico"
+      type="image/x-icon" />
+
+    <title>Oquiz</title>
+
+    <!-- Google Fonts -->
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+      async />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+      async />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+      async />
+
+    <!-- Stylesheets -->
+    <link
+      rel="stylesheet"
+      href="../../../public/css/reset.css"
+      async />
+    <link
+      rel="stylesheet"
+      href="../../../public/css/style.css"
+      async />
+  </head>
+  <body>
+    <!-- Entête de page -->
+    <header>
+      <!-- Icone du site -->
+      <a
+        class="header__link"
+        href="./index.html"
+        aria-label="Lien vers la page d'accueil">
+        <img
+          class="header__logo"
+          src="../../../public/images/logo-white.svg"
+          alt="Oquiz - Plateforme de quiz en ligne" />
+      </a>
+
+      <!-- Navigation de l'entête -->
+      <nav class="header-nav">
+        <ul class="header-nav__list">
+          <li class="header-nav__elt">
+            <a
+              class="header-nav__link"
+              href="./index.html"
+              ><img
+                src="../../../public/icons/homepage.png"
+                alt="Page d'accueil" /><span>Accueil</span></a
+            >
+          </li>
+
+          <li class="header-nav__elt">
+            <a
+              class="header-nav__link"
+              href="./tags.html"
+              ><img
+                src="../../../public/icons/tags.png"
+                alt="Lien vers la page des sujets" /><span>Sujets</span></a
+            >
+          </li>
+          <!-- Uniquement visible lorsque l'utilisateur est connecté -->
+          <!-- <li class="header-nav__elt">
+                            <a
+                                class="header-nav__link"
+                                href="./profile.html"
+                                ><img src="../../../public/icons/profile.png" alt="Lien vers votre page de profil"><span>Profil</span></a
+                            >
+                        </li> -->
+          <!-- ... -->
+          <li class="header-nav__elt">
+            <a
+              class="header-nav__link header-nav__link--outline"
+              href="./login.html"
+              ><img
+                src="../../../public/icons/login.png"
+                alt="Page de connexion" /><span>Connexion</span></a
+            >
+          </li>
+          <li class="header-nav__elt">
+            <a
+              class="header-nav__link header-nav__link--plain"
+              href="./signup.html"
+              ><img
+                src="../../../public/icons/signup.png"
+                alt="Page d'inscription" /><span>Inscription</span></a
+            >
+          </li>
+          <!-- Uniquement visible lorsque l'utilisateur est connecté -->
+          <!-- <li class="header-nav__elt">
+                            <a
+                                class="header-nav__link header-nav__link--outline"
+                                href="#"
+                                ><img src="../../../public/icons/logout.png" alt="Se déconnecter"><span>Déconnexion</span></a
+                            >
+                        </li> -->
+
+          <!-- ... -->
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Corps de la page -->
+    <main class="tags-page">
+      <h1>Tous les sujets</h1>
+      <!-- Thématique avec quiz liés -->
+      <section class="tag__section">
+        <h2 class="tag__title">Football</h2>
+        <ul class="tag__quiz-list">
+          <li>
+            <a href="./quiz.html">Les grandes victoires du RC Lens</a>
+          </li>
+          <li><a href="./quiz.html">France 98</a></li>
+        </ul>
+      </section>
+      <!-- ... -->
+
+      <!-- Thématique avec quiz liés -->
+      <section class="tag__section">
+        <h2 class="tag__title">Cyclisme</h2>
+        <ul class="tag__quiz-list">
+          <li>
+            <a href="./quiz.html">Le Tour de France : faits marquants</a>
+          </li>
+          <li>
+            <a href="./quiz.html">Les champions des classiques</a>
+          </li>
+          <li><a href="./quiz.html">Les ascensions mythiques</a></li>
+          <li>
+            <a href="./quiz.html">Les records des contre-la-montre</a>
+          </li>
+          <li><a href="./quiz.html">Les équipes iconiques</a></li>
+        </ul>
+      </section>
+      <!-- ... -->
+
+      <!-- Thématique avec quiz liés -->
+      <section class="tag__section">
+        <h2 class="tag__title">Tennis</h2>
+        <ul class="tag__quiz-list">
+          <li>
+            <a href="./quiz.html">Les grands duels Federer-Nadal</a>
+          </li>
+        </ul>
+      </section>
+      <!-- ... -->
+
+      <!-- Thématique avec quiz liés -->
+      <section class="tag__section">
+        <h2 class="tag__title">Esports</h2>
+        <p class="tag__no-quiz-message">Pas de quiz pour l'instant</p>
+      </section>
+      <!-- ... -->
+
+      <!-- Thématique avec quiz liés -->
+      <section class="tag__section">
+        <h2 class="tag__title">Basketball</h2>
+        <ul class="tag__quiz-list">
+          <li><a href="./quiz.html">Les légendes de la NBA</a></li>
+          <li>
+            <a href="./quiz.html">Les équipes mythiques des JO</a>
+          </li>
+          <li><a href="./quiz.html">Les records imbattables</a></li>
+        </ul>
+      </section>
+      <!-- ... -->
+
+      <!-- Thématique avec quiz liés -->
+      <section class="tag__section">
+        <h2 class="tag__title">Natation</h2>
+        <ul class="tag__quiz-list">
+          <li>
+            <a href="./quiz.html">Les exploits de Michael Phelps</a>
+          </li>
+          <li>
+            <a href="./quiz.html">Les JO les plus mémorables</a>
+          </li>
+        </ul>
+      </section>
+      <!-- ... -->
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <a href="./index.html"
+        ><img
+          src="../../../public/images/logo-white.svg"
+          alt="Logo d'Oquiz"
+          class="footer__logo"
+      /></a>
+      <div class="footer__menus">
+        <!-- Menu footer -->
+        <ul class="footer__nav-list">
+          <li><a href="./index.html">Accueil</a></li>
+          <li><a href="#">À propos</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+        <!-- Menu footer -->
+        <ul class="footer__nav-list">
+          <li><a href="#">Mentions légales</a></li>
+          <li><a href="#">CGU</a></li>
+          <li><a href="#">Politique de Confidentialité</a></li>
+          <li><a href="#">Utilisation des cookies</a></li>
+        </ul>
+        <!-- Menu footer -->
+        <ul class="footer__nav-list">
+          <li><a href="./login.html">Se connecter</a></li>
+          <li><a href="./signup.html">S'inscrire</a></li>
+          <li><a href="./admin.html">Administration</a></li>
+        </ul>
+      </div>
+      <p class="footer__copyright">© 2025 O'Quiz - Tous droits réservés.</p>
+    </footer>
+  </body>
+</html>

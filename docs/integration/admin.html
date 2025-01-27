@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Testez vos connaissances avec notre plateforme de quiz en ligne ! Des centaines de quiz amusants et éducatifs dans tous les domaines : culture générale, sciences, divertissement, et bien plus. Défiez vos amis et devenez un maître du savoir !" />
+
+    <link
+      rel="shortcut icon"
+      href="../../../public/favicon.ico"
+      type="image/x-icon" />
+
+    <title>Oquiz</title>
+
+    <!-- Google Fonts -->
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+      async />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+      async />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+      async />
+
+    <!-- Stylesheets -->
+    <link
+      rel="stylesheet"
+      href="../../../public/css/reset.css"
+      async />
+    <link
+      rel="stylesheet"
+      href="../../../public/css/style.css"
+      async />
+  </head>
+  <body>
+    <!-- Entête de page -->
+    <header>
+      <!-- Icone du site -->
+      <a
+        class="header__link"
+        href="./index.html"
+        aria-label="Lien vers la page d'accueil">
+        <img
+          class="header__logo"
+          src="../../../public/images/logo-white.svg"
+          alt="Oquiz - Plateforme de quiz en ligne" />
+      </a>
+
+      <!-- Navigation de l'entête -->
+      <nav class="header-nav">
+        <ul class="header-nav__list">
+          <li class="header-nav__elt">
+            <a
+              class="header-nav__link"
+              href="./index.html"
+              ><img
+                src="../../../public/icons/homepage.png"
+                alt="Page d'accueil" /><span>Accueil</span></a
+            >
+          </li>
+          <li class="header-nav__elt">
+            <a
+              class="header-nav__link"
+              href="./tags.html"
+              ><img
+                src="../../../public/icons/tags.png"
+                alt="Lien vers la page des sujets" /><span>Sujets</span></a
+            >
+          </li>
+          <!-- Uniquement visible lorsque l'utilisateur est connecté -->
+          <!-- <li class="header-nav__elt">
+                                <a
+                                    class="header-nav__link"
+                                    href="./profile.html"
+                                    ><img src="../../../public/icons/profile.png" alt="Lien vers votre page de profil"><span>Profil</span></a
+                                >
+                            </li> -->
+          <!-- ... -->
+          <li class="header-nav__elt">
+            <a
+              class="header-nav__link header-nav__link--outline"
+              href="./login.html"
+              ><img
+                src="../../../public/icons/login.png"
+                alt="Page de connexion" /><span>Connexion</span></a
+            >
+          </li>
+          <li class="header-nav__elt">
+            <a
+              class="header-nav__link header-nav__link--plain"
+              href="./signup.html"
+              ><img
+                src="../../../public/icons/signup.png"
+                alt="Page d'inscription" /><span>Inscription</span></a
+            >
+          </li>
+          <!-- Uniquement visible lorsque l'utilisateur est connecté -->
+          <!-- <li class="header-nav__elt">
+                                <a
+                                    class="header-nav__link header-nav__link--outline"
+                                    href="#"
+                                    ><img src="../../../public/icons/logout.png" alt="Se déconnecter"><span>Déconnexion</span></a
+                                >
+                            </li> -->
+          <!-- ... -->
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Corps de la page -->
+    <main class="admin-page">
+      <h1>Administration</h1>
+
+      <!-- Berlingot d'erreur pour afficher les erreurs -->
+      <!-- <div class="form-error-block">
+                Une erreur s'est produite à l'envoi du formulaire : [message
+                d'erreur].
+            </div> -->
+
+      <details
+        class="admin__details-block"
+        open>
+        <summary class="admin__details-title">Niveaux</summary>
+        <!-- Tableau de données -->
+        <table class="admin-table">
+          <caption class="admin-table__title admin-page__subtitle">
+            Liste des niveaux existants
+          </caption>
+          <tr>
+            <th>#</th>
+            <th>Nom</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Facile</td>
+            <td>
+              <a href="#"
+                ><img
+                  src="../../../public/icons/update.png"
+                  alt="Modifier le niveau"
+              /></a>
+            </td>
+            <td>
+              <button
+                class="admin-table__btn"
+                data-level="Facile">
+                <img
+                  src="../../../public/icons/delete.png"
+                  alt="Supprimer le niveau" />
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Moyen</td>
+            <td>
+              <a href="#"
+                ><img
+                  src="../../../public/icons/update.png"
+                  alt="Modifier le niveau"
+              /></a>
+            </td>
+            <td>
+              <button
+                class="admin-table__btn"
+                data-level="Moyen">
+                <img
+                  src="../../../public/icons/delete.png"
+                  alt="Supprimer le niveau" />
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Difficile</td>
+            <td>
+              <a href="#"
+                ><img
+                  src="../../../public/icons/update.png"
+                  alt="Modifier le niveau"
+              /></a>
+            </td>
+            <td>
+              <button
+                class="admin-table__btn"
+                data-level="Difficile">
+                <img
+                  src="../../../public/icons/delete.png"
+                  alt="Supprimer le niveau" />
+              </button>
+            </td>
+          </tr>
+        </table>
+
+        <!-- Dialog pour la confirmation -->
+        <dialog
+          class="admin-dialog"
+          id="confirm-dialog">
+          <p class="admin-dialog__title">Confirmer la suppression</p>
+          <p id="dialog-message">Voulez-vous vraiment supprimer ce niveau ?</p>
+          <div class="admin-dialog__buttons">
+            <button
+              class="admin-dialog__button admin-dialog__button--cancel"
+              id="cancel-button">
+              Annuler
+            </button>
+            <button
+              class="admin-dialog__button admin-dialog__button--confirm"
+              id="confirm-button">
+              Confirmer
+            </button>
+          </div>
+        </dialog>
+
+        <!-- Formulaire d'ajout d'un niveau -->
+        <p class="admin-page__subtitle">Ajouter un niveau</p>
+        <form
+          class="add-form"
+          action="">
+          <label
+            class="add-form__label"
+            for="level"
+            >Nom du niveau</label
+          >
+          <input
+            class="add-form__input"
+            type="text"
+            name="level"
+            id="level"
+            placeholder="Niveau" />
+          <button
+            class="add-form__btn"
+            type="submit">
+            Ajouter niveau
+          </button>
+        </form>
+      </details>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <a href="./index.html"
+        ><img
+          src="../../../public/images/logo-white.svg"
+          alt="Logo d'Oquiz"
+          class="footer__logo"
+      /></a>
+      <div class="footer__menus">
+        <!-- Menu footer -->
+        <ul class="footer__nav-list">
+          <li><a href="./index.html">Accueil</a></li>
+          <li><a href="#">À propos</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+        <!-- Menu footer -->
+        <ul class="footer__nav-list">
+          <li><a href="#">Mentions légales</a></li>
+          <li><a href="#">CGU</a></li>
+          <li><a href="#">Politique de Confidentialité</a></li>
+          <li><a href="#">Utilisation des cookies</a></li>
+        </ul>
+        <!-- Menu footer -->
+        <ul class="footer__nav-list">
+          <li><a href="./login.html">Se connecter</a></li>
+          <li><a href="./signup.html">S'inscrire</a></li>
+          <li><a href="./admin.html">Administration</a></li>
+        </ul>
+      </div>
+      <p class="footer__copyright">© 2025 O'Quiz - Tous droits réservés.</p>
+    </footer>
+
+    <!-- Script utile uniquement pour le panneau d'administration -->
+    <script
+      src="../../../public/js/modal.js"
+      defer></script>
+  </body>
+</html>
