@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node --watch index.js",
-    "db": "psql -U oquiz -d oquiz -f data/create_tables.sql"
+    "db:create": "psql -U oquiz -d oquiz -f data/create_tables.sql",
+    "db:populate": "psql -U oquiz -d oquiz -f data/populate_tables.sql",
+    "db:seed": "psql -U oquiz -d oquiz",
+    "db:reset": "pnpm run db:create && pnpm run db:populate"
   },
   "keywords": [],
   "author": "HerissonNicolas",
