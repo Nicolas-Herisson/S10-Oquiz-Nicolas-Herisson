@@ -1,38 +1,18 @@
-DROP TABLE IF EXISTS "represent";
-DROP TABLE IF EXISTS "theme";
-DROP TABLE IF EXISTS "quiz";
-DROP TABLE IF EXISTS "user";
-DROP TABLE IF EXISTS "purpose";
-DROP TABLE IF EXISTS "question";
-DROP TABLE IF EXISTS "difficulty";
+DROP TABLE IF EXISTS "quiz_has_tag" CASCADE;
+DROP TABLE IF EXISTS "answer" CASCADE;
+DROP TABLE IF EXISTS "question" CASCADE;
+DROP TABLE IF EXISTS "quiz" CASCADE;
+DROP TABLE IF EXISTS "user" CASCADE;
+DROP TABLE IF EXISTS "difficulty" CASCADE;
+DROP TABLE IF EXISTS "tag" CASCADE;
 
-
-CREATE TABLE "difficulty" (
-  "id_difficulty" SERIAL PRIMARY KEY,
-  "description" VARCHAR(64) NOT NULL
-);
-
-CREATE TABLE "question" (
-  "id_question" SERIAL PRIMARY KEY,
-  "question_code" INT NOT NULL,
-  "title" VARCHAR(64) NOT NULL,
-  "anecdote" VARCHAR(255),
-  "id_difficulty" INT,
-  FOREIGN KEY ("id_difficulty") REFERENCES "difficulty"("id_difficulty")
-);
-
-CREATE TABLE "purpose" (
-  "id_purpose" SERIAL PRIMARY KEY,
-  "purpose_code" INT NOT NULL,
-  "answer" VARCHAR(512) NOT NULL,
-  "title" VARCHAR(128) NOT NULL,
-  "is_valid" BOOLEAN NOT NULL,
-  "id_question" INT,
-  FOREIGN KEY ("id_question") REFERENCES "question"("id_question")
+CREATE TABLE "level" (
+  "id" SERIAL PRIMARY KEY,
+  "name" VARCHAR(64) NOT NULL
 );
 
 CREATE TABLE "user" (
-  "id_user" SERIAL PRIMARY KEY,
+  "id" SERIAL PRIMARY KEY,
   "email" VARCHAR(255) NOT NULL,
   "password" VARCHAR(255) NOT NULL,
   "first_name" VARCHAR(255) NOT NULL,
@@ -41,23 +21,41 @@ CREATE TABLE "user" (
 );
 
 CREATE TABLE "quiz" (
-  "id_quiz" SERIAL PRIMARY KEY,
-  "quiz_code" INT NOT NULL,
+  "id" SERIAL PRIMARY KEY,
   "title" VARCHAR(128) NOT NULL,
   "description" VARCHAR(512) NOT NULL,
   "id_user" INT,
-  FOREIGN KEY ("id_user") REFERENCES "user"("id_user")
+  FOREIGN KEY ("id_user") REFERENCES "user"("id")
 );
 
-CREATE TABLE "theme" (
-  "id_theme" SERIAL PRIMARY KEY,
+CREATE TABLE "question" (
+  "id" SERIAL PRIMARY KEY,
+  "title" VARCHAR(64) NOT NULL,
+  "anecdote" TEXT,
+  "id_level" INT,
+  FOREIGN KEY ("id_level") REFERENCES "level"("id"),
+  "id_quiz" INT,
+  FOREIGN KEY ("id_quiz") REFERENCES "quiz"("id")
+);
+
+CREATE TABLE "answer" (
+  "id" SERIAL PRIMARY KEY,
+  "answer" VARCHAR(512) NOT NULL,
+  "title" VARCHAR(128) NOT NULL,
+  "is_valid" BOOLEAN NOT NULL,
+  "id_question" INT,
+  FOREIGN KEY ("id_question") REFERENCES "question"("id")
+);
+
+
+CREATE TABLE "tag" (
+  "id" SERIAL PRIMARY KEY,
   "name" VARCHAR(128) NOT NULL
 );
 
-CREATE TABLE "represent" (
-  "id_represent" SERIAL PRIMARY KEY,
+CREATE TABLE "quiz_has_tag" (
   "id_quiz" INT,
-  "id_theme" INT,
-  FOREIGN KEY ("id_quiz") REFERENCES "quiz"("id_quiz"),
-  FOREIGN KEY ("id_theme") REFERENCES "theme"("id_theme")
+  "id_tag" INT,
+  FOREIGN KEY ("id_quiz") REFERENCES "quiz"("id"),
+  FOREIGN KEY ("id_tag") REFERENCES "tag"("id")
 );
