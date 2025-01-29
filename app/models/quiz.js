@@ -24,36 +24,36 @@ export default class Quiz {
     */
 
     // GETTEUR
-    getId() {
+    get id() {
         return this.#id;
     };
 
-    getTitle() {
+    get title() {
         return this.#title;
     };
 
-    getDescription() {
+    get description() {
         return this.#description;
     };
 
-    getAuthorId() {
+    get authorId() {
         return this.#authorId;
     };
 
     //SETTEUR
-    setTitle(title) {
+    set title(title) {
         if (typeof id !== "string")
             throw new Error("id must be a string");
         this.#title = title;
     }
 
-    setDescription(description) {
+    set description(description) {
         if (typeof id !== "string")
             throw new Error("id must be a string");
         this.#description = description;
     }
 
-    setAuthorId(authorId) {
+    set authorId(authorId) {
         if (typeof id !== "integer")
             throw new Error("id must be an integer");
         this.#authorId = authorId;

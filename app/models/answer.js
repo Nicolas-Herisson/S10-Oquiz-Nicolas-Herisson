@@ -13,40 +13,40 @@ class Answer {
         this.#id_question = id_question;
     };
 
-    getId() {
+    get id() {
         return this.#id;
     };
 
-    getAnswer() {
+    get answer() {
         return this.#answer;
     };
 
-    getTitle() {
+    get title() {
         return this.#title;
     };
 
-    getIdLevel() {
+    get is_valid() {
         return this.#is_valid;
     };
 
-    getIdQuiz() {
+    get id_question() {
         return this.#id_question;
     };
 
 
-    setAnswer(answer) {
+    set answer(answer) {
         this.#answer = answer;
     };
 
-    setTitle(title) {
+    set title(title) {
         this.#title = title;
     };
 
-    setIdLevel(is_valid) {
+    set is_valid(is_valid) {
         this.#is_valid = is_valid;
     };
 
-    setIdQuiz(id_question) {
+    set id_question(id_question) {
         this.#id_question = id_question;
     };
 };

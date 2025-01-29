@@ -1,4 +1,4 @@
-import client from "./client.js";
+import client from "./database/client.js";
 
 const dataMapper = {
 

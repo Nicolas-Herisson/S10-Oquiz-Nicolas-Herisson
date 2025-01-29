@@ -13,40 +13,40 @@ class Question {
         this.#id_quiz = id_quiz;
     };
 
-    getId() {
+    get id() {
         return this.#id;
     };
 
-    getTitle() {
+    get title() {
         return this.#title;
     };
 
-    getAnecdote() {
+    get anecdote() {
         return this.#anecdote;
     };
 
-    getIdLevel() {
+    get id_level() {
         return this.#id_level;
     };
 
-    getIdQuiz() {
+    get id_quiz() {
         return this.#id_quiz;
     };
 
 
-    setTitle(title) {
+    set title(title) {
         this.#title = title;
     };
 
-    setAnecdote(anecdote) {
+    set anecdote(anecdote) {
         this.#anecdote = anecdote;
     };
 
-    setIdLevel(id_level) {
+    set id_level(id_level) {
         this.#id_level = id_level;
     };
 
-    setIdQuiz(id_quiz) {
+    set id_quiz(id_quiz) {
         this.#id_quiz = id_quiz;
     };
 };

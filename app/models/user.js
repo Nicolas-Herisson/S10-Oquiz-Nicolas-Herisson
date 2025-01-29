@@ -1,61 +1,65 @@
-class User {
+import Query from './query.js';
+
+
+export default class User extends Query {
     #id;
     #email;
     #password;
     #first_name;
     #last_name;
     #role;
-
+//findll byId byEmail insert update delete
     constructor(id, email, password, first_name, last_name, role) {
+        super("user");
         this.#id = id;
         this.#email = email;
         this.#password = password;
         this.#first_name = first_name;
         this.#last_name = last_name;
         this.#role = role;
-    };
+    }
 
-    getId() {
+    get id() {
         return this.#id;
     };
 
-    getEmail() {
+    get email() {
         return this.#email;
     };
 
-    getPassword() {
+    get password() {
         return this.#password;
     };
 
-    getFirstName() {
+    get first_name() {
         return this.#first_name;
     };
 
-    getLastName() {
+    get last_name() {
         return this.#last_name;
     };
 
-    getRole() {
+    get role() {
         return this.#role;
     };
 
-    setEmail(email) {
+    set email(email) {
         this.#email = email;
     };
 
-    setPassword(password) {
+    set password(password) {
         this.#password = password;
     };
 
-    setFirstName(first_name) {
+    set first_name(first_name) {
         this.#first_name = first_name;
     };
 
-    setLastName(last_name) {
+    set last_name(last_name) {
         this.#last_name = last_name;
     };
 
-    setRole(role) {
+    set role(role) {
         this.#role = role;
     };
 }
