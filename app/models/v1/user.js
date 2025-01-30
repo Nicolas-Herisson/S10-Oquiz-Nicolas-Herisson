@@ -2,26 +2,22 @@ import Query from './query.js';
 
 
 export default class User extends Query {
-    #id;
+
     #email;
     #password;
     #first_name;
     #last_name;
     #role;
+    static tableName = "user";
 //findll byId byEmail insert update delete
-    constructor(id, email, password, first_name, last_name, role) {
-        super("user");
-        this.#id = id;
-        this.#email = email;
-        this.#password = password;
-        this.#first_name = first_name;
-        this.#last_name = last_name;
-        this.#role = role;
+    constructor(obj) {
+        super(obj);
+        this.#email = obj.email;
+        this.#password = obj.password;
+        this.#first_name = obj.first_name;
+        this.#last_name = obj.last_name;
+        this.#role = obj.role;
     }
-
-    get id() {
-        return this.#id;
-    };
 
     get email() {
         return this.#email;
