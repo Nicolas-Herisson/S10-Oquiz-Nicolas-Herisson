@@ -26,13 +26,15 @@
             <th>Modifier</th>
             <th>Supprimer</th>
           </tr>
+          
+            <% for( const level of levels) { %>
           <tr>
-            <td>1</td>
-            <td>Facile</td>
+              <td>1</td>
+            <td><%= level.name %></td>
             <td>
               <a href="#"
                 ><img
-                  src="../../../public/icons/update.png"
+                  src="/icons/update.png"
                   alt="Modifier le niveau"
               /></a>
             </td>
@@ -41,51 +43,13 @@
                 class="admin-table__btn"
                 data-level="Facile">
                 <img
-                  src="../../../public/icons/delete.png"
+                  src="/icons/delete.png"
                   alt="Supprimer le niveau" />
               </button>
             </td>
           </tr>
-          <tr>
-            <td>2</td>
-            <td>Moyen</td>
-            <td>
-              <a href="#"
-                ><img
-                  src="../../../public/icons/update.png"
-                  alt="Modifier le niveau"
-              /></a>
-            </td>
-            <td>
-              <button
-                class="admin-table__btn"
-                data-level="Moyen">
-                <img
-                  src="../../../public/icons/delete.png"
-                  alt="Supprimer le niveau" />
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Difficile</td>
-            <td>
-              <a href="#"
-                ><img
-                  src="../../../public/icons/update.png"
-                  alt="Modifier le niveau"
-              /></a>
-            </td>
-            <td>
-              <button
-                class="admin-table__btn"
-                data-level="Difficile">
-                <img
-                  src="../../../public/icons/delete.png"
-                  alt="Supprimer le niveau" />
-              </button>
-            </td>
-          </tr>
+            <% } %>
+          
         </table>
 
         <!-- Dialog pour la confirmation -->

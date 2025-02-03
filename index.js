@@ -4,6 +4,7 @@ import path from "node:path";
 import mainRouter from './app/routers/mainRouter.js';
 import errors from './app/middleware/errors.js';
 import session from 'express-session';
+import adminRouter from './app/routers/adminRouter.js';
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use(
   );
 
 app.use(mainRouter);
+app.use(adminRouter)
 app.use((req, res, next) => {
     errors[404](res);
 });
