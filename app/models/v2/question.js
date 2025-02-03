@@ -1,25 +1,33 @@
 import sequelize from "../../database/sequelize.js";
 import { DataTypes, Model } from "sequelize";
 
-export default class Answer extends Model {};
+export default class Question extends Model {};
 
-Answer.init(
+Question.init( 
     {
         description: {
             type: DataTypes.TEXT,
             allowNull: false
         },
-        question_id: {
+        anecdote: {
+            type: DataTypes.TEXT,
+            allowNull: true
+        },
+        wiki: {
+            type: DataTypes.TEXT,
+            allowNull: true
+        },
+        level_id: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        is_valid: {
-            type: DataTypes.BOOLEAN,
+        quiz_id: {
+            type: DataTypes.INTEGER,
             allowNull: false
         }
     },
     {
         sequelize, //establish connection
-        tableName: "answer",
+        tableName: "question",
     }
 );
