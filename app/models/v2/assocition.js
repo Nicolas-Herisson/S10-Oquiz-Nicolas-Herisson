@@ -3,6 +3,7 @@ import Answer from "./answer.js";
 import Level from "./level.js";
 import Quiz from "./quiz.js";
 import User from "./user.js";
+import Tag from "./tag.js";
 
 // one to many
 
@@ -53,5 +54,19 @@ Quiz.belongsTo(User, {
     }
 );
 
-export { Question, Answer, Level, Quiz, User };
-export default { Question, Answer, Level, Quiz, User };
+Quiz.belongsToMany(Tag, {
+    through: "quiz_tag",
+    foreignKey: "quiz_id",
+    otherKey: "tag_id",
+    as: "tags"
+});
+
+Tag.belongsToMany(Quiz, {
+    through: "quiz_tag",
+    foreignKey: "tag_id",
+    otherKey: "quiz_id",
+    as: "quizs"
+});
+
+export { Question, Answer, Level, Quiz, User, Tag };
+export default { Question, Answer, Level, Quiz, User, Tag };

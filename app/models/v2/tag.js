@@ -9,5 +9,9 @@ tag.init(
             type: DataTypes.STRING,
             allowNull: false
         }
+    },
+    {
+        sequelize, //establish connection
+        tableName: "tag",
     }
 );
