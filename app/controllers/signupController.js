@@ -4,20 +4,23 @@ import passwordValidator from 'password-validator';
 import errors from '../middleware/errors.js';
 import {User} from '../models/v2/associations.js';
 
-async function emailCheck(email)
+async function emailCheck(toCheckEmail)
 {
 
-  if (!EmailValidator.validate(email))
+  if (!EmailValidator.validate(toCheckEmail))
     return "Email non valide!";
 
   const user = await User.findOne({
-    Where: {email}
+    where: {email: toCheckEmail}
   });
 
-  
-  if (user)
-    return "L'email est deja prit!"
 
+  if (user)
+  {
+    console.log(email);
+    console.log(user.email);
+    return "L'email est deja prit!"
+  }
   return "";
 
 }
@@ -80,7 +83,7 @@ const signupController = {
             lastname: req.body.lastname
           });
           
-          return res.status(200).redirect("login", {userId: req.session.userId, data: null, errorMessage: null});
+          res.status(200).redirect("login");
     
     
     
