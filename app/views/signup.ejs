@@ -10,6 +10,11 @@
                 Une erreur s'est produite à l'envoi du formulaire : [message
                 d'erreur].
             </div> -->
+      <% if (errorMessage) { %>
+        <div class="form-error-block"><%= errorMessage %></div>
+      <% } %>
+
+
       <form
         class="signup-form"
         method="post">
@@ -19,7 +24,11 @@
             type="text"
             name="firstname"
             id="firstname"
-            placeholder="Votre prénom" required/>
+            placeholder="Votre prénom" required
+            <% if (data && data.firstname) { %>
+              value=<%= data.firstname %>
+            <% } %>
+            />
         </div>
 
         <div class="signup-form__fieldset">
@@ -28,7 +37,11 @@
             type="text"
             name="lastname"
             id="lastname"
-            placeholder="Votre nom" required />
+            placeholder="Votre nom" required 
+            <% if (data && data.lastname) { %>
+              <%= data.lastname %>
+            <% } %>
+            />
         </div>
 
         <div class="signup-form__fieldset">
@@ -37,7 +50,11 @@
             type="email"
             name="email"
             id="email"
-            placeholder="nom@mail.fr" required/>
+            placeholder="nom@mail.fr" required
+            <% if (data && data.email) { %>
+              <%= data.email %>
+            <% } %>
+            />
         </div>
 
         <div class="signup-form__fieldset">
