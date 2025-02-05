@@ -14,10 +14,6 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        role: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
         firstname: {
             type: DataTypes.STRING,
             allowNull: false
