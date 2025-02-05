@@ -1,145 +1,38 @@
-<%- include('partials/header') %>
+<%- include('partials/headerIndex') %>
+
+<%- include('partials/nav') %>
 
     <!-- Corps de la page -->
     <main class="homepage">
       <!-- One quiz card element -->
+      <% for( const quiz of quizzes) { %>
       <article class="quiz-card">
         <div class="quiz-card__img-block">
           <img
-            src="/images/quiz/default.webp"
+            src="<%= quiz.picture_url %>"
             class="quiz-card__img"
             alt="" />
           <div class="quiz-card__tags">
-            <span>Tag 1</span>
-            <span>Tag 2</span>
-            <span>Tag 3</span>
+            <% for( let index = 0; index < quiz.tags.length; index++ ) { %>
+              <span><%= quiz.tags[index].name %></span>
+            <% } %>
+           
           </div>
         </div>
         <div class="quiz-card__infos-block">
-          <h2 class="quiz-card__title">Titre quiz</h2>
-          <p class="quiz-card__author">Par Prénom NOM</p>
+          <h2 class="quiz-card__title"><%= quiz.title %></h2>
+          <p class="quiz-card__author">Par <%= quiz.user.firstname %> <%= quiz.user.lastname %></p>
           <a
             class="link-btn"
-            href="/quiz"
+            href="/quiz/<%= quiz.id %>"
             >Jouer</a
           >
         </div>
       </article>
-      <!-- One quiz card element -->
-      <article class="quiz-card">
-        <div class="quiz-card__img-block">
-          <img
-            src="/images/quiz/default.webp"
-            class="quiz-card__img"
-            alt="" />
-          <div class="quiz-card__tags">
-            <span>Tag 1</span>
-            <span>Tag 2</span>
-            <span>Tag 3</span>
-          </div>
-        </div>
-        <div class="quiz-card__infos-block">
-          <h2 class="quiz-card__title">Titre quiz</h2>
-          <p class="quiz-card__author">Par Prénom NOM</p>
-          <a
-            class="link-btn"
-            href="/quiz"
-            >Jouer</a
-          >
-        </div>
-      </article>
-      <!-- One quiz card element -->
-      <article class="quiz-card">
-        <div class="quiz-card__img-block">
-          <img
-            src="/images/quiz/default.webp"
-            class="quiz-card__img"
-            alt="" />
-          <div class="quiz-card__tags">
-            <span>Tag 1</span>
-            <span>Tag 2</span>
-            <span>Tag 3</span>
-          </div>
-        </div>
-        <div class="quiz-card__infos-block">
-          <h2 class="quiz-card__title">Titre quiz</h2>
-          <p class="quiz-card__author">Par Prénom NOM</p>
-          <a
-            class="link-btn"
-            href="/quiz"
-            >Jouer</a
-          >
-        </div>
-      </article>
-      <!-- One quiz card element -->
-      <article class="quiz-card">
-        <div class="quiz-card__img-block">
-          <img
-            src="/images/quiz/default.webp"
-            class="quiz-card__img"
-            alt="" />
-          <div class="quiz-card__tags">
-            <span>Tag 1</span>
-            <span>Tag 2</span>
-            <span>Tag 3</span>
-          </div>
-        </div>
-        <div class="quiz-card__infos-block">
-          <h2 class="quiz-card__title">Titre quiz</h2>
-          <p class="quiz-card__author">Par Prénom NOM</p>
-          <a
-            class="link-btn"
-            href="/quiz"
-            >Jouer</a
-          >
-        </div>
-      </article>
-      <!-- One quiz card element -->
-      <article class="quiz-card">
-        <div class="quiz-card__img-block">
-          <img
-            src="/images/quiz/default.webp"
-            class="quiz-card__img"
-            alt="" />
-          <div class="quiz-card__tags">
-            <span>Tag 1</span>
-            <span>Tag 2</span>
-            <span>Tag 3</span>
-          </div>
-        </div>
-        <div class="quiz-card__infos-block">
-          <h2 class="quiz-card__title">Titre quiz</h2>
-          <p class="quiz-card__author">Par Prénom NOM</p>
-          <a
-            class="link-btn"
-            href="/quiz"
-            >Jouer</a
-          >
-        </div>
-      </article>
-      <!-- One quiz card element -->
-      <article class="quiz-card">
-        <div class="quiz-card__img-block">
-          <img
-            src="/images/quiz/default.webp"
-            class="quiz-card__img"
-            alt="" />
-          <div class="quiz-card__tags">
-            <span>Tag 1</span>
-            <span>Tag 2</span>
-            <span>Tag 3</span>
-          </div>
-        </div>
-        <div class="quiz-card__infos-block">
-          <h2 class="quiz-card__title">Titre quiz</h2>
-          <p class="quiz-card__author">Par Prénom NOM</p>
-          <a
-            class="link-btn"
-            href="/quiz"
-            >Jouer</a
-          >
-        </div>
-      </article>
-    </main>
 
-    <%- include('partials/footer') %>
+
+      <% } %>
+      
+        </main>
+
+<%- include('partials/footer') %>

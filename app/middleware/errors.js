@@ -1,8 +1,8 @@
 const errors = {
-    404: (res) => {
-        res.status(404).render("404");
+    404: (req, res) => {
+        res.status(404).render("404", { userId: req.session.userId });
     },
-    500: (res) => {
+    500: (req, res) => {
         res.status(500).render("500");
     }
 };

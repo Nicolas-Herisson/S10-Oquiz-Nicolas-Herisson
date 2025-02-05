@@ -1,5 +1,7 @@
 <%- include('partials/header') %>
 
+<%- include('partials/nav') %>
+
     <!-- Corps de la page -->
     <main class="signup-page">
       <h1>Inscription</h1>
@@ -10,14 +12,14 @@
             </div> -->
       <form
         class="signup-form"
-        action="">
+        method="post">
         <div class="signup-form__fieldset">
           <label for="firstname">Prénom</label>
           <input
             type="text"
             name="firstname"
             id="firstname"
-            placeholder="Votre prénom" />
+            placeholder="Votre prénom" required/>
         </div>
 
         <div class="signup-form__fieldset">
@@ -26,7 +28,7 @@
             type="text"
             name="lastname"
             id="lastname"
-            placeholder="Votre nom" />
+            placeholder="Votre nom" required />
         </div>
 
         <div class="signup-form__fieldset">
@@ -35,7 +37,7 @@
             type="email"
             name="email"
             id="email"
-            placeholder="nom@mail.fr" />
+            placeholder="nom@mail.fr" required/>
         </div>
 
         <div class="signup-form__fieldset">
@@ -44,7 +46,7 @@
             type="password"
             name="password"
             id="password"
-            placeholder="******" />
+            placeholder="******" required/>
         </div>
 
         <div class="signup-form__fieldset">
@@ -53,7 +55,7 @@
             type="password"
             name="confirmation"
             id="password"
-            placeholder="******" />
+            placeholder="******" required/>
         </div>
 
         <button type="submit">Inscription</button>
@@ -61,9 +63,10 @@
 
       <!-- Liens utiles -->
       <ul>
-        <li><a href="./login.html">Vous avez déjà un compte ?</a></li>
-        <li><a href="./index.html">Retour à la page d'accueil</a></li>
+        <li><a href="/login">Vous avez déjà un compte ?</a></li>
+        <li><a href="/">Retour à la page d'accueil</a></li>
       </ul>
     </main>
 
-    <%- include('partials/footer') %>
+
+<%- include('partials/footer') %>

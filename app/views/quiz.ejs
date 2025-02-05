@@ -1,108 +1,56 @@
 <%- include('partials/header') %>
 
+<%- include('partials/nav') %>
 
     <!-- Corps de la page -->
     <main class="quiz-page">
-      <h1 class="quiz__title">Titre du quiz</h1>
+      <h1 class="quiz__title"><%= quiz.title %></h1>
+      <h1>
+        Theme(s) :
+        <% for( let tagsIndex = 0; tagsIndex < quiz.tags.length; tagsIndex++ ) { %>
+          <%= quiz.tags[tagsIndex].name %>
+        <% } %>
+        </h1>
+
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem cumque
-        eaque quidem hic ex molestiae repellendus vitae aperiam, tempore
-        commodi.
+        <%= quiz.description %>
       </p>
-      <p>Par <span>Prénom NOM</span>, le 02 décembre</p>
+      <% const date = new Date(quiz.user.created_at) %>
+      <p>Par <span><%= quiz.user.firstname %> <%= quiz.user.lastname.toUpperCase() %></span>, le <%= date.toLocaleDateString() %></p>
 
+
+      <% for( let index = 0; index < quiz.questions.length; index++ ) { %>
+           <!-- Question -->
+           <fieldset>
+            <legend><%= quiz.questions[index].description %></legend>
+            <!-- Réponse -->
+            <% for( let i = 0; i < quiz.questions[index].answers.length; i++ ) { %>
+              <div>
+                <input
+                  type="radio"
+                  name="question<%= index %>"
+                  id="answer<%= i %>" />
+                <label for="answer<%= i %>"><%= quiz.questions[index].answers[i].description %></label>
+              </div>
+            <% } %>
+            
+  
+            <p class="quiz-anecdote">
+              <%= quiz.questions[index].anecdote %>
+            </p>
+            <p class="quiz-anecdote">
+              Difficulte :
+              <%= quiz.questions[index].level.name %>
+            </p>
+          </fieldset>
+      <% } %>
       <form action="">
-        <!-- Question -->
-        <fieldset>
-          <legend>Question</legend>
-          <!-- Réponse -->
-          <div>
-            <input
-              type="radio"
-              name="question1"
-              id="answer1" />
-            <label for="answer1">Réponse 1</label>
-          </div>
-          <!-- Réponse -->
-          <div>
-            <input
-              type="radio"
-              name="question1"
-              id="answer2" />
-            <label for="answer2">Réponse 2</label>
-          </div>
-
-          <!-- Réponse -->
-          <div>
-            <input
-              type="radio"
-              name="question1"
-              id="answer3" />
-            <label for="answer3">Réponse 3</label>
-          </div>
-
-          <!-- Réponse -->
-          <div>
-            <input
-              type="radio"
-              name="question1"
-              id="answer4" />
-            <label for="answer4">Réponse 4</label>
-          </div>
-
-          <p class="quiz-anecdote">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
-            tempora porro quos tenetur illo voluptatibus quibusdam laboriosam
-            ratione optio provident.
-          </p>
-        </fieldset>
-        <!-- Question -->
-        <fieldset>
-          <legend>Question</legend>
-          <!-- Réponse -->
-          <div>
-            <input
-              type="radio"
-              name="question2"
-              id="answer1" />
-            <label for="answer1">Réponse 1</label>
-          </div>
-          <!-- Réponse -->
-          <div>
-            <input
-              type="radio"
-              name="question2"
-              id="answer2" />
-            <label for="answer2">Réponse 2</label>
-          </div>
-
-          <!-- Réponse -->
-          <div>
-            <input
-              type="radio"
-              name="question2"
-              id="answer3" />
-            <label for="answer3">Réponse 3</label>
-          </div>
-
-          <!-- Réponse -->
-          <div>
-            <input
-              type="radio"
-              name="question2"
-              id="answer4" />
-            <label for="answer4">Réponse 4</label>
-          </div>
-
-          <p class="quiz-anecdote">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
-            tempora porro quos tenetur illo voluptatibus quibusdam laboriosam
-            ratione optio provident.
-          </p>
-        </fieldset>
+   
+      
 
         <button type="submit">Soumettre le formulaire</button>
       </form>
     </main>
 
-    <%- include('partials/footer') %>
+
+<%- include('partials/footer') %>

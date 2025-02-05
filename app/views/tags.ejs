@@ -1,84 +1,45 @@
 <%- include('partials/header') %>
 
+<%- include('partials/nav') %>
 
     <!-- Corps de la page -->
     <main class="tags-page">
       <h1>Tous les sujets</h1>
-      <!-- Thématique avec quiz liés -->
-      <section class="tag__section">
-        <h2 class="tag__title">Football</h2>
-        <ul class="tag__quiz-list">
-          <li>
-            <a href="./quiz.html">Les grandes victoires du RC Lens</a>
-          </li>
-          <li><a href="./quiz.html">France 98</a></li>
-        </ul>
-      </section>
-      <!-- ... -->
+      <% for( const tag of tags ) { %>
+        <section class="tag__section">
+          <h2 class="tag__title"><%= tag.name %></h2>
+          <ul class="tag__quiz-list">
+            <% for( const quiz of tag.quizzes ) { %>
+              <li>
+                <a href="/quiz/<%= quiz.id %>"><%= quiz.title %></a>
+              </li>
+            <% } %>
+          </ul>
+        </section>
+      <% } %>
 
-      <!-- Thématique avec quiz liés -->
-      <section class="tag__section">
-        <h2 class="tag__title">Cyclisme</h2>
-        <ul class="tag__quiz-list">
-          <li>
-            <a href="./quiz.html">Le Tour de France : faits marquants</a>
-          </li>
-          <li>
-            <a href="./quiz.html">Les champions des classiques</a>
-          </li>
-          <li><a href="./quiz.html">Les ascensions mythiques</a></li>
-          <li>
-            <a href="./quiz.html">Les records des contre-la-montre</a>
-          </li>
-          <li><a href="./quiz.html">Les équipes iconiques</a></li>
-        </ul>
-      </section>
-      <!-- ... -->
-
-      <!-- Thématique avec quiz liés -->
-      <section class="tag__section">
-        <h2 class="tag__title">Tennis</h2>
-        <ul class="tag__quiz-list">
-          <li>
-            <a href="./quiz.html">Les grands duels Federer-Nadal</a>
-          </li>
-        </ul>
-      </section>
-      <!-- ... -->
-
-      <!-- Thématique avec quiz liés -->
-      <section class="tag__section">
-        <h2 class="tag__title">Esports</h2>
-        <p class="tag__no-quiz-message">Pas de quiz pour l'instant</p>
-      </section>
-      <!-- ... -->
-
-      <!-- Thématique avec quiz liés -->
-      <section class="tag__section">
-        <h2 class="tag__title">Basketball</h2>
-        <ul class="tag__quiz-list">
-          <li><a href="./quiz.html">Les légendes de la NBA</a></li>
-          <li>
-            <a href="./quiz.html">Les équipes mythiques des JO</a>
-          </li>
-          <li><a href="./quiz.html">Les records imbattables</a></li>
-        </ul>
-      </section>
-      <!-- ... -->
-
-      <!-- Thématique avec quiz liés -->
-      <section class="tag__section">
-        <h2 class="tag__title">Natation</h2>
-        <ul class="tag__quiz-list">
-          <li>
-            <a href="./quiz.html">Les exploits de Michael Phelps</a>
-          </li>
-          <li>
-            <a href="./quiz.html">Les JO les plus mémorables</a>
-          </li>
-        </ul>
-      </section>
-      <!-- ... -->
     </main>
 
-    <%- include('partials/footer') %>
+<%- include('partials/footer') %><%- include('partials/header') %>
+
+<%- include('partials/nav') %>
+
+    <!-- Corps de la page -->
+    <main class="tags-page">
+      <h1>Tous les sujets</h1>
+      <% for( const tag of tags ) { %>
+        <section class="tag__section">
+          <h2 class="tag__title"><%= tag.name %></h2>
+          <ul class="tag__quiz-list">
+            <% for( const quiz of tag.quizzes ) { %>
+              <li>
+                <a href="/quiz/<%= quiz.id %>"><%= quiz.title %></a>
+              </li>
+            <% } %>
+          </ul>
+        </section>
+      <% } %>
+
+    </main>
+
+<%- include('partials/footer') %>
