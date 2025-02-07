@@ -1,11 +1,12 @@
+import errors from "../middleware/errors.js";
 
 
 const profileController = {
     showProfilePage: async (req, res) => {
         try {
-          res.status(200).render('profile', {userId: req.session.userId});
+          res.status(200).render('profile');
         } catch (error) {
-          res.status(500).error(error);
+          errors[500](req,res);
         }
       },
 }

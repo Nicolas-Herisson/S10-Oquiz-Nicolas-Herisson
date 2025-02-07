@@ -5,8 +5,9 @@ const loginRouter = express.Router();
 
 
 loginRouter.get('/login', loginController.showLoginPage);
-loginRouter.post('/login', loginController.checkLogin);
+loginRouter.post('/login', loginController.login);
 
+loginRouter.get('/logout', loginController.logout);
 
 
 // on exporte le routeur

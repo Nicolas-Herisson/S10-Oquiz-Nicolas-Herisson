@@ -10,6 +10,7 @@ import profileRouter from './app/routers/profileRouter.js';
 import quizRouter from './app/routers/quizRouter.js';
 import signupRouter from './app/routers/signupRouter.js';
 import tagRouter from './app/routers/tagRouter.js';
+import {setupSession} from "./app/middleware/session.js"
 
 const app = express();
 
@@ -18,13 +19,18 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({extended: true}));
 
-//setup session
-app.use(session({ 
-  secret: 'coucouCKi?', 
-  resave: true, 
-  saveUninitialized: true,
-  cookie: { secure: false, maxAge: 3600000 }}));
+app.use(setupSession);
+app.use((req, res, next) => {
+    res.locals.error = "";
+    //   used to check if the user is logged in ejs
+    // Locals are reachable in ejs
+    if (req.session.user)
+        res.locals.user = req.session.user;
+    else
+        res.locals.user = null;
 
+    next();
+});
 
 app.use(mainRouter);
 app.use(adminRouter);

@@ -1,10 +1,11 @@
 import express from 'express';
 import quizController from '../controllers/quizController.js';
+import isLogged from '../middleware/permissions.js';
 
 const quizRouter = express.Router();
 
 
-quizRouter.get('/quiz/:id', quizController.showQuizPage);
+quizRouter.get('/quiz/:id',isLogged, quizController.showQuizPage);
 
 
 

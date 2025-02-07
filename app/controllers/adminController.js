@@ -1,3 +1,4 @@
+import errors from "../middleware/errors.js";
 import {Level} from "../models/v2/associations.js";
 
 const adminController = {
@@ -5,11 +6,10 @@ const adminController = {
         try {
             const levels = await Level.findAll();
 
-            res.status(200).render("admin", {levels, userId: req.session.userId});
+            res.status(200).render("admin", {levels});
             
         } catch (error) {
-            console.log(error);
-            res.status(500).send("Internal Server Error");
+            errors[500](req,res);
         }
     }
 };

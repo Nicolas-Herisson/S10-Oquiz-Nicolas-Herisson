@@ -1,4 +1,4 @@
-  import {Quiz, User, Tag} from '../models/v2/associations.js';
+  import {Quiz} from '../models/v2/associations.js';
   import errors from '../middleware/errors.js';
 
   const quizController = 
@@ -40,10 +40,10 @@
         if (!quiz) 
         return errors[404](req, res);
 
-        res.status(200).render("quiz", { quiz, userId: req.session.userId });
+        res.status(200).render("quiz", { quiz});
 
         } catch (error) {
-        res.status(500).error(error);
+            errors[500](req,res);
         }
     },
 }

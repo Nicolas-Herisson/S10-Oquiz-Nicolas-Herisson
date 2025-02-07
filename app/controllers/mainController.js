@@ -1,3 +1,4 @@
+import errors from '../middleware/errors.js';
 import { Quiz } from '../models/v2/associations.js';
 
 // Tout ce qui est en lien avec la page d'accueil
@@ -23,10 +24,10 @@ const mainController = {
       if (!req.session.userId)
         req.session.userId = 2;
 
-      res.status(200).render('index', { quizzes, userId: req.session.userId });
+      res.status(200).render('index', { quizzes});
 
     } catch (error) {
-      res.status(500).error(error);
+        errors[500](req,res);
     }
   },
 

@@ -17,15 +17,15 @@ async function emailCheck(toCheckEmail)
 
   if (user)
   {
-    console.log(email);
-    console.log(user.email);
     return "L'email est deja prit!"
   }
+
+
   return "";
 
 }
 
-function passwordCheck(password)
+function passwordCheck(password, confirmedPassword)
 {
   const schema = new passwordValidator();
 
@@ -41,6 +41,9 @@ function passwordCheck(password)
   if (!schema.validate(password))
     return "Mot de passe non valide!";
 
+  if (password !== confirmedPassword)
+    return "Les deux mot de passe ne sont pas identiques!";
+
   return "";
 
 }
@@ -48,10 +51,10 @@ function passwordCheck(password)
 const signupController = {
     showSignupPage: async (req, res) => {
         try {
-          res.status(200).render("signup", {userId: req.session.userId, data: null, errorMessage: null});
+          res.status(200).render("signup", {data: null, errorMessage: null});
     
         } catch (error) {
-          res.status(500).error(error);
+           errors[500](req,res);
         }
       },
       redirectLoginPage: async (req, res) => {
@@ -60,30 +63,35 @@ const signupController = {
           const {firstname, lastname, email, password, confirmation} = req.body;
 
           if (!firstname || ! lastname || !email || !password)
-            return res.render("signup", {userId: req.session.userId, data: req.body, errorMessage: "Veuillez remplir tous les champs!"});
+            res.locals.error =  "Veuillez remplir tous les champs!";
 
           const emailError = await emailCheck(req.body.email);
 
           if (emailError !== "")
-            return res.render("signup", {userId: req.session.userId, data: req.body, errorMessage: emailError});
+            res.locals.error = emailError;
 
-          const passwordError = passwordCheck(req.body.password)
-          
+          const passwordError = passwordCheck(req.body.password, confirmation)
+
           if (passwordError !== "")
-            return res.render("signup", {userId: req.session.userId, data: req.body, errorMessage: passwordError});
-          
+            res.locals.error = passwordError;
+
           // On hash le password renseigne
           const hashPassword = await argon2.hash(req.body.password);
 
-    
-          await User.create({
-            email: req.body.email,
-            password: hashPassword,
-            firstname: req.body.firstname,
-            lastname: req.body.lastname
-          });
+
+          if (res.locals.error === "")
+          {
+            await User.create({
+              email: req.body.email,
+              password: hashPassword,
+              firstname: req.body.firstname,
+              lastname: req.body.lastname,
+              role: "customer"
+            });
+            return res.status(200).redirect("/login");
+          }
           
-          res.status(200).redirect("login");
+          res.status(200).render("signup", {data: req.body, errorMessage: res.locals.error});
     
     
     

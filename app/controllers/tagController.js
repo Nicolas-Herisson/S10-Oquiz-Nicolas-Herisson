@@ -1,4 +1,5 @@
-  import {Tag, Quiz} from '../models/v2/associations.js'
+  import errors from '../middleware/errors.js';
+import {Tag} from '../models/v2/associations.js'
   
   const tagController = {
   showTagsPage:async (req, res) => {
@@ -14,10 +15,10 @@
      }
     );
 
-      res.render('tags', {tags, userId: req.session.userId});
+      res.render('tags', {tags});
 
     } catch (error) {
-      res.status(500).error(error);
+      errors[500](req,res);
     }
   },
 }

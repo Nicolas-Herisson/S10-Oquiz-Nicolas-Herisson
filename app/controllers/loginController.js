@@ -1,6 +1,5 @@
-import {User, Quiz} from '../models/v2/associations.js'
+import {User} from '../models/v2/associations.js'
 import * as argon2 from "argon2";
-import * as EmailValidator from 'email-validator';
 import errors from '../middleware/errors.js';
 
 
@@ -9,14 +8,14 @@ const loginController = {
     showLoginPage: async (req, res) => {
         try {
 
-        res.status(200).render("login",{ userId: req.session.userId});
+        res.status(200).render("login",{ errorMessage: null});
 
         } catch (error) {
-        res.status(500).error(error);
+            errors[500](req,res);
         }
     },
 
-    checkLogin: async (req, res) => {
+    login: async (req, res) => {
         try {
         // Ici je cherche le user pas som email dans la BDD
         const user = await User.findOne({
@@ -24,31 +23,35 @@ const loginController = {
             email: req.body.email,
             }
         });
-        
-        if (!user) {
+
+        if (!user) 
             // Si le user n'existe pas on affiche la vue login
-            res.status(200).render('login', {userId: req.session.userId})
-        }
+            res.locals.error = "Email n'existe pas";
         else
         {
             // Si user existe on verifie si le password dans la BDD est egal au password renseigne
-            if (await argon2.verify(user.password, req.body.password)) 
-            {
-                req.session.name = user.lastname;
-                req.session.userId = user.id;
-                return res.status(200).redirect("/");
-            } 
-            else 
-                // Si les passwords ne sont pas les memes on afficher la vue login
-                res.status(200).render('login', {userId: req.session.userId});
+            if (!await argon2.verify(user.password, req.body.password)) 
+                res.locals.error = "Mot de passe incorrect";
         }
 
-        // par securite, si la condition echoue on affiche la vue login
-        res.status(200).render('login', {userId: req.session.userId});
+        if (res.locals.error) 
+            return res.status(200).render('login', {errorMessage: res.locals.error});
+
+
+        req.session.user = user;
+        res.status(200).redirect("/");
+    
+    
         
         } catch (error) {
             errors[500](req,res);
         }
+    },
+    logout: (req, res) => {
+
+        req.session.destroy();
+
+        res.redirect('/');
     },
 }
 
