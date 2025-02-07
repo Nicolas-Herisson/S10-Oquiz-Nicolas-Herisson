@@ -18,7 +18,7 @@ import {Tag} from '../models/v2/associations.js'
       res.render('tags', {tags});
 
     } catch (error) {
-      errors[500](req,res);
+      errors[500](req,res, error);
     }
   },
 }

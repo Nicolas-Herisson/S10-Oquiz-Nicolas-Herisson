@@ -3,6 +3,7 @@ import "dotenv/config";
 import pg from 'pg';
 
 const sequelize = new Sequelize(`postgresql://${process.env.DBUSER}:${process.env.DBPWD}@localhost/${process.env.DB}`, {
+    logging: false,
     define: {
         timestamps: true,
         createdAt: 'created_at',

@@ -38,12 +38,12 @@
         });
 
         if (!quiz) 
-        return errors[404](req, res);
+            return errors[404](req, res);
 
         res.status(200).render("quiz", { quiz});
 
         } catch (error) {
-            errors[500](req,res);
+            errors[500](req,res, error);
         }
     },
 }

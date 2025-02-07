@@ -16,9 +16,8 @@ async function emailCheck(toCheckEmail)
 
 
   if (user)
-  {
     return "L'email est deja prit!"
-  }
+
 
 
   return "";
@@ -96,7 +95,7 @@ const signupController = {
     
     
         } catch (error) {
-          errors[500](req, res);
+          errors[500](req, res, error);
         }
       },
 }

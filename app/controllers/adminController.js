@@ -9,7 +9,7 @@ const adminController = {
             res.status(200).render("admin", {levels});
             
         } catch (error) {
-            errors[500](req,res);
+            errors[500](req,res, error);
         }
     }
 };

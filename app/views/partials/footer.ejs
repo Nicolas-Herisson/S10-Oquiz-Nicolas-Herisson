@@ -24,9 +24,13 @@
         </ul>
         <!-- Menu footer -->
         <ul class="footer__nav-list">
-          <li><a href="/login">Se connecter</a></li>
-          <li><a href="/signup">S'inscrire</a></li>
+          <% if (!locals.user) { %>
+            <li><a href="/login">Se connecter</a></li>
+            <li><a href="/signup">S'inscrire</a></li>
+          <% } %>
+          <% if (locals.user && locals.user.role === "admin") { %>
             <li><a href="/admin">Administration</a></li>
+          <% } %>
         </ul>
       </div>
       <p class="footer__copyright">© 2025 O'Quiz - Tous droits réservés.</p>
