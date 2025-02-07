@@ -6,10 +6,12 @@
     <main class="profile-page">
       <h1>Votre profil</h1>
       <!-- Berlingot d'erreur pour afficher les erreurs -->
-      <!-- <div class="form-error-block">
-                Une erreur s'est produite à l'envoi du formulaire : [message
-                d'erreur].
-            </div> -->
+       <% if (errorMessage !== "") { %>
+        <div class="form-error-block">
+          <%= errorMessage %>
+      </div>
+       <% } %>
+
       <form
         class="profile-form"
         method="post">
