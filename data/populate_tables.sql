@@ -1,12 +1,7 @@
--- ------------------------------------------------
--- Echantillonnage de la base de données :  "oquiz"
--- ------------------------------------------------
-
--- Début d'une transaction
 BEGIN;
 
 
--- Vide les tables, sans toucher à la structure des tables
+
 TRUNCATE TABLE "level",
 "answer",
 "user",
@@ -16,18 +11,14 @@ TRUNCATE TABLE "level",
 "quiz_has_tag" RESTART IDENTITY;
 
 
--- ----------------------------------------
--- Déchargement des données de la table "user"
--- ----------------------------------------
-INSERT INTO "user" ("id", "firstname", "lastname", "email", "password") VALUES
-(1, 'Philippe', 'Candille', 'philippe@oclock.io', '$2b$10$7vwYGrz2TGeyG4X8YnD9BOag9I.YKGUTJELs64qGmcK/syHu2BzTG'),
-(3, 'Chuck', 'Norris', 'chuck@oclock.io', '$2b$10$7vwYGrz2TGeyG4X8YnD9BOag9I.YKGUTJELs64qGmcK/syHu2BzTG');
--- Note : le mot de passe haché (avec bcrypt) est 'password' ici ;-)
+
+INSERT INTO "user" ("id", "firstname", "lastname", "email", "password", "role") VALUES
+(1, 'Toto', 'Lasticot', 'toto@gmail.com', '$argon2id$v=19$m=65536,t=3,p=4$NiKml4QYuk6CDN7WEbOqAQ$Fg7n3NpPMtz5YdJ4Uh+t6Vk97d6F/ZKpJlOXGvtbYEg', 'admin'),
+(3, 'Titi', 'Lotrarie', 'titi@gmail.com', '$argon2id$v=19$m=65536,t=3,p=4$NiKml4QYuk6CDN7WEbOqAQ$Fg7n3NpPMtz5YdJ4Uh+t6Vk97d6F/ZKpJlOXGvtbYEg', 'user');
+--         password: Qwerty123456!             --
 
 
--- ----------------------------------------
--- Déchargement des données de la table "answer"
--- ----------------------------------------
+
 INSERT INTO "answer" ("id", "description", "question_id", "is_valid") VALUES
 (1, 'Un gland', 1, true),
 (2, 'Willy', 2, true),
@@ -753,17 +744,13 @@ INSERT INTO "answer" ("id", "description", "question_id") VALUES
 (954, 'La figuette', 180);
 
 
--- ----------------------------------------
--- Déchargement des données de la table "levels"
--- ----------------------------------------
+
 INSERT INTO "level" ("id", "name") VALUES
 (1, 'Débutant'),
 (2, 'Confirmé'),
 (3, 'Expert');
 
--- ----------------------------------------
--- Déchargement des données de la table "quiz"
--- ----------------------------------------
+
 INSERT INTO "quiz" ("id", "title", "description", "picture_url", "user_id") VALUES
 (1, 'Animaux célèbres - I', 'Tantôt effrayants, tantôt drôles.', '/images/quiz/animaux-celebres-1.webp', 1),
 (2, 'Le chocolat - I', 'Bon pour le moral, un peu moins pour le foie.', '/images/quiz/chocolat-1.webp', 1),
@@ -785,9 +772,6 @@ INSERT INTO "quiz" ("id", "title", "description", "picture_url", "user_id") VALU
 (18, 'Les fromages de France - III', 'Près de 1000 fromages différents.', '/images/quiz/fromage-france-3.webp', 3);
 
 
--- ----------------------------------------
--- Déchargement des données de la table "question"
--- ----------------------------------------
 INSERT INTO "question" ("id", "quiz_id", "description", "level_id", "anecdote", "wiki") VALUES
 (1, 1, 'Dans le film d''animation L''Âge de glace, qu''est-ce qui échappe à l''écureuil Scrat ?', 1, 'À l''occasion de la sortie de L''Âge de glace 4, Scrat a eu son double de cire au Musée Grévin le 20 juin 2012.', 'Scrat'),
 (2, 7, 'Comment se nomme l''orque à sauver dans une saga cinématographique populaire ?', 1, 'Si les deuxième et troisième films sont des suites du premier, le 4e n''a aucun lien avec le reste et est en quelque sorte un reboot.', 'Sauvez_Willy_(série_de_films)'),
@@ -970,9 +954,6 @@ INSERT INTO "question" ("id", "quiz_id", "description", "level_id", "anecdote", 
 (179, 6, 'Quel fromage présente une ligne orange en-dessous de sa pâte de couleur ivoire ?', 3, 'Le barousse est une pâte à trous qui pendant les deux premières semaines est lavé, essuyé et retourné tous les jours.', 'Barousse_(fromage)'),
 (180, 18, 'Quel fromage a une pâte qui révèle une saveur de lard fumé et un final épicé ?', 3, 'Sa recette aurait été transmise au XIXe siècle à Saint-Julien-de-Concelles dans le vignoble nantais par un curé de passage.', 'Le_Curé_Nantais');
 
--- ----------------------------------------
--- Déchargement des données de la table "tag"
--- ----------------------------------------
 INSERT INTO "tag" ("id", "name") VALUES
 (1, 'Cinema'),
 (2, 'Technologie'),
@@ -983,10 +964,6 @@ INSERT INTO "tag" ("id", "name") VALUES
 (7, 'Nature'),
 (8, 'Astronomie'),
 (9, 'Géographie');
-
--- ----------------------------------------
--- Déchargement des données de la table "quiz_has_tag"
--- ----------------------------------------
 
 INSERT INTO "quiz_has_tag" ("quiz_id", "tag_id") VALUES
 (1, 1),
@@ -1025,12 +1002,7 @@ COMMIT;
 
 
 
--- ------------------------------
--- Mise à jour des séquences d'ID
--- ------------------------------
-
--- Note : Postgres, avec le fait d'ajouter IDENTITY BY DEFAULT au lieu de ALWAYS, ne met pas à jour le curseur de l'incrément de la séquence de façon implicite lorsque l'on choisit manuellement la valeur d'un ID, comme c'est le cas ici.
--- Il faut donc mettre à jour la valeur courante de chacune des séquences en sélectionnant l'id maximum de chaque table une fois l'échantillonnage (seeding) terminé.
+--set incrementation cursor / not auto increment
 
 BEGIN;
 
